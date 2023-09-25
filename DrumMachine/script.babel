@@ -1,0 +1,161 @@
+
+class DrumMachine extends React.Component {
+  constructor(props) {
+    super(props);
+  
+  this.state = {
+    display: ''}
+    this.heaterOne = this.heaterOne.bind(this);
+    this.heaterTwo = this.heaterTwo.bind(this);
+    this.heaterThree = this.heaterThree.bind(this);
+    this.heaterFour = this.heaterFour.bind(this);
+    this.clap = this.clap.bind(this);
+    this.openHH = this.openHH.bind(this);
+    this.closedHH = this.closedHH.bind(this);
+    this.kick = this.kick.bind(this);
+    this.kickNHat = this.kickNHat.bind(this);
+  };
+heaterOne(event) {
+  document.getElementById("Q").play();
+  this.setState({display: "Heater 1"})
+}
+heaterTwo(event) {
+  document.getElementById("W").play();
+  this.setState({display: "Heater 2"})
+}
+  heaterThree(event) {
+   document.getElementById("E").play();
+  this.setState({display: "Heater 3"})
+}
+heaterFour(event) {
+   document.getElementById("A").play();
+  this.setState({display: "Heater 4"})
+}
+clap(event) {
+   document.getElementById("S").play();
+  this.setState({display: "Clap"})
+}
+  openHH(event) {
+   document.getElementById("D").play();
+  this.setState({display: "Open Hi-Hat"})
+}
+  closedHH(event) {
+   document.getElementById("C").play();
+  this.setState({display: "Closed Hi-Hat"})
+}
+  kick(event) {
+   document.getElementById("X").play();
+  this.setState({display: "Kick"})
+}
+  kickNHat(event) {
+  document.getElementById("Z").play();
+  this.setState({display: "Kick and Hat"})
+}
+
+  render() {
+       document.body.addEventListener("keydown",function(){
+    (event.keyCode== 81) && document.getElementById("Q").play()
+   
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 87) && document.getElementById("W").play()
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 69) && document.getElementById("E").play()
+ 
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 65) && document.getElementById("A").play()
+ 
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 83) && document.getElementById("S").play()
+
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 68) && document.getElementById("D").play()
+
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 90) && document.getElementById("Z").play()
+ 
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 88) && document.getElementById("X").play()
+ 
+});
+document.body.addEventListener("keydown",function(){
+    (event.keyCode== 67) && document.getElementById("C").play()
+
+}); 
+    return (
+    <div id="drum-machine">
+ 
+        <button 
+          class="drum-pad" 
+          id="heater1" 
+          onClick={this.heaterOne}>
+          <audio 
+            class="clip"  
+            id="Q" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
+            </audio>
+          Q</button>
+        <button 
+          class="drum-pad" 
+          id="heater2" 
+          onClick={this.heaterTwo}>
+          <audio 
+            class="clip"  
+            id="W" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"></audio>
+          W</button>
+        <button class="drum-pad" id="heater3" onClick={this.heaterThree}>
+          <audio 
+            class="clip"  
+            id="E" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"></audio>
+          E</button>
+        <button class="drum-pad" id="heater4" onClick={this.heaterFour}>
+          <audio 
+            class="clip"  
+            id="A" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"></audio>
+          A</button>
+        <button class="drum-pad" id="clap" onClick={this.clap}>
+          <audio 
+            class="clip"  
+            id="S" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"></audio>
+          S</button>
+        <button class="drum-pad" id="open-hh" onClick={this.openHH}>
+          <audio 
+            class="clip"  
+            id="D" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"></audio>
+          D</button>
+        <button class="drum-pad" id="kick-n-hat" onClick={this.kickNHat}>
+          <audio 
+            class="clip"  
+            id="Z" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"></audio>
+          Z</button>
+        <button class="drum-pad" id="kick" onClick={this.kick}>
+          <audio 
+            class="clip"  
+            id="X" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"></audio>
+          X</button>
+        <button class="drum-pad" id="closed-hh" onClick={this.closedHH}>
+          <audio 
+            class="clip"  
+            id="C" 
+            src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"></audio> 
+          C</button>
+        <div id="display">{this.state.display}
+        </div>
+        </div>)
+  }
+}
+ReactDOM.render(<DrumMachine/>, document.getElementById("root"))
+ 
